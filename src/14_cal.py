@@ -32,8 +32,16 @@ import calendar
 from datetime import datetime
 
 def print_date():
-  month = input("Enter a month: ")
-  year = input("Enter a year: ")
-  print(month, year)
+  arg_list = []
+  for arg in sys.argv:
+    arg_list.append(arg)
+  print(len(arg_list))
+  if len(arg_list) == 3:
+    print(calendar.month(int(arg_list[2]), int(arg_list[1])))
+  elif len(arg_list) == 2:
+    print(calendar.month(2020, int(arg_list[1])))
+  else:
+    print(calendar.month(2020, 6))
+
 
 print_date()
